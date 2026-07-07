@@ -88,7 +88,7 @@ mkdir Results graphs_orig_Ensemble
 time ./main.sh Results n B -1 Ensemble
 ```
 
-5. ** Outputs**<br>
+5. **Outputs**<br>
 The framework output the folder `Results`, containing the following information:
    1. For each constructed $\texttt{nc}$-tree $`\mathrm{tree} \in \{\mathrm{rstar}, \mathrm{slink}, \mathrm{fpa}, \mathrm{upgma}, \mathrm{wpgmc}\}`$, a folder, titled `TREE` containing the following files.
       1. A file corresponding to each branch of the tree, containing the list of incremental edges along the same branch. These incremental edges are stored in the row-major flattened index, i.e., the edge $e = \{i,j\}$ between nodes $i$ and $j$ are stored as $i \times n + j$.
