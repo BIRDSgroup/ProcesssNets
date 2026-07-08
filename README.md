@@ -57,35 +57,67 @@ import networkx as nx
 #edges = list(Gi.edges()) # required only if you want to generate the list of edges
 nx.write_edgelist(Gi, 'graphs_Ensemble/' + str(i) + '.csv', delimiter=",", data=False)
 ```
-3. **Choosing which configurations to run** - [optional]<br>
-The current version of the framework constructs five $\texttt{nc}$-trees, namely, $\mathrm{rstar}$, $\mathrm{slink}$, $\mathrm{fpa}$, $\mathrm{upgma}$, and $\mathrm{wpgmc}$, and computes three network science measures, namely, degree centrality, component size, and PR centrality, using each of these five $\texttt{nc}$-trees and two versions of the baseline approach -- a self-implementation and using the `networkx` package.
-If you are not interested to run any of these configurations, then please use any text editor to edit `main.sh` as follows:
-   1. If you don't want to construct $\mathrm{rstar}$, and do not want to compute the network science measures using the same, then please delete
-      1. all occurrences of the word `rstar` from the file
-      2. lines 22 to 25
-   2. If you are not interested to construct any of the other $\texttt{nc}$-trees:<br>
-   Suppose you don't want to construct $`\mathrm{tree} \in \{ \mathrm{slink}, \mathrm{fpa}, \mathrm{upgma}, \mathrm{wpgmc} \}`$, and hence do not want to compute the network science measures using $\mathrm{tree}$, then please delete all occurrences of the word `tree` from the file.
-   3. If you want to construct $`\mathrm{tree} \in \{\mathrm{rstar}, \mathrm{slink}, \mathrm{fpa}, \mathrm{upgma}, \mathrm{wpgmc}\}`$, but you don't want to compute the network science measures using the same, then please delete the word `tree` from line 40.
-   4. If you don't want to compute the network science measures using the baseline self-implementation, then please delete lines 57 -- 72.
-   5. If you don't want to compute the network science measures using the baseline approach with `networkx` Python package, then please delete lines 74 -- 89.
-   6. If you don't want to compute degree centrality, then please delete lines 42-43, 61-62, and 78-79.
-   7. If you don't want to compute component size, then please delete lines 45-46, 64-65, and 81-82.
-   8. If you don't want to compute PR centrality, then please delete lines 48-49, 67-68, and 84-85.
-   9. If you want to compute closeness centrality using the framework configurations, then please uncomment lines 51-52.
-   10. If you want to compute closeness centrality using the baseline approach with `networkx`, then please uncomment lines 87-88.
-       
-4. **Executing the Framework**<br>
+3. **Executing the Framework**<br>
 Suppose your input ensemble has $B$ networks, each defined on $n$ nodes and generated from a dataset with $s$ samples. 
 Let `Results` be the output folder to store all $\texttt{nc}$-trees, measurement values and other outputs. 
 Then please run the following command from the terminal.
 ```bash
 mkdir Results graphs_orig_Ensemble
-time ./main.sh Results n B s Ensemble
+time ./main.sh Results n B s Ensemble [options]
 ```
 If you don't have the information pertaining to the number of samples on which the networks are constructed, then please use the value $-1$ for $s$ i.e.,
 ```bash
 mkdir Results graphs_orig_Ensemble
-time ./main.sh Results n B -1 Ensemble
+time ./main.sh Results n B -1 Ensemble [options]
+```
+
+4. **Optional Arguments**<br>
+Please mention the required values next to the corresponding option separated by space 
+   1. `--measures`
+   Specifies which measures to compute.<br>
+   Valid values:<br>
+   | Value    | Description |<br>
+   |----------|-------------|<br>
+   | `degree` | Degree centrality |<br>
+   | `connectivity` | Component Size |<br>
+   | `pr` | PageRank centrality |<br>
+   | `cc` | Closeness centrality |<br>
+   If nothing is specified, then all measures are computed.
+   
+   2. `--config`
+   Specifies which configurations of the framework to use, i.e., the measures should be computed using which of the five $\texttt{nc}$-trees.<br>
+   Valid values:<br>
+   | Value    | Description |<br>
+   |----------|-------------|<br>
+   | `rstar` | $\mathrm{rstar}$ |<br>
+   | `slink` | $\mathrm{slink}$ |<br>
+   | `fpa` | $\mathrm{fpa}$ |<br>
+   | `upgma` | $\mathrm{upgma}$ |<br>
+   | `wpgmc` | $\mathrm{wpgmc}$ |<br>
+   If nothing is specified, then all configurations are used.
+   
+   3. `--tself`
+   Specifies if the measures should be computed using the self-implementation variant of baseline approach.<br>
+   Valid values:<br>
+   | Value    | Description |<br>
+   |----------|-------------|<br>
+   | `T` | Compute all specified measures using this variant |<br>
+   | `F` | Does not compute the specified measures using this variant |<br>
+   Default value is `T`
+   
+   4. `--tnx`
+   Specifies if the measures should be computed using the `networkx` package with baseline approach.<br>
+   Valid values:<br>
+   | Value    | Description |<br>
+   |----------|-------------|<br>
+   | `T` | Compute all specified measures using this variant |<br>
+   | `F` | Does not compute the specified measures using this variant |<br>
+   Default value is `T`.
+   
+An example run:
+Suppose you want to compute degree centrality and PR centrality only using $`\mathrm{rstar}`$ and $`\mathrm{slink}`$ $\texttt{nc}$-trees only. And you also want to compute the same two measures using the self-implementation variant of baseline approach but not using `networkx` package, then please execute the code as follows:
+```bash
+time ./main.sh Results n B s Ensemble --measure degree pr --config rstar slink --tnx F
 ```
 
 5. **Outputs**<br>
