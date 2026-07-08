@@ -93,7 +93,8 @@ The framework output the folder `Results`, containing the following information:
    1. For each constructed $\texttt{nc}$-tree $`\mathrm{tree} \in \{\mathrm{rstar}, \mathrm{slink}, \mathrm{fpa}, \mathrm{upgma}, \mathrm{wpgmc}\}`$, a folder, titled `TREE` containing the following files.
       1. A file corresponding to each branch of the tree, containing the list of incremental edges along the same branch. These incremental edges are stored in the row-major flattened index, i.e., the edge $e = \{i,j\}$ between nodes $i$ and $j$ are stored as $i \times n + j$.
       2. `root.csv` - a file containing the edge list of the root network
-      3. `info.tsv` - a tab-separated file containing the branch id, source network id, destination network id, and number of incremental edges along the branch.<br>
+      3. `info.tsv` - a tab-separated file containing the branch id, source network id, destination network id, and number of incremental edges along the branch.
+      4. `child_count.tsv` - this file is generated only for the tree constructed using $`\mathrm{rstar}`$ and contains the number of children of each branching point.<br>
 For example, consider the branch $(G_I, G_J)$ from $G_I$ to $G_J$ with the id $x$. The list of incremental edges along this branch, i.e., $E(G_J) \setminus E(G_I)$ is stored in the file `x.csv`. Suppose $|E(G_J) \setminus E(G_I)| = y$. Then, the $x$<sup>th</sup> line in `info.tsv` stores `x \t I \t J \t y`.
    2. `edge count.tsv` - a tab-separated file containing the number of nodes and number of edges of each network in the input ensemble
    3. `error.txt` - stores the total running time taken by the framework and errors, if any.
