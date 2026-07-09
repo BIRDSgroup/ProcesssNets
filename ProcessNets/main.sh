@@ -51,6 +51,8 @@ done
 root=$((2 * (B - 1)))
 
 echo $tissue
+mkdir graphs_orig_$gname $tissue
+mv "graphs_$gname/edge count.tsv" $tissue
 cp -r graphs_$gname/* graphs_orig_$gname/
 
 echo 'JSI Compute'
