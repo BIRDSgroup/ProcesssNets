@@ -7,5 +7,5 @@ time ./run_seq.sh
 cd ..
 
 cd "Category C"
-time ./run_parallel.sh
+time ./run_seq.sh
 cd ..
