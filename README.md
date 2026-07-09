@@ -123,7 +123,7 @@ time ./main.sh Results 500 100 -1 Eg_Ensemble --measure degree pr --config rstar
 5. **Outputs**<br>
 The framework output the folder `Results`, containing the following information:
    1. For each constructed $\texttt{nc}$-tree $`\mathrm{tree} \in \{\mathrm{rstar}, \mathrm{slink}, \mathrm{fpa}, \mathrm{upgma}, \mathrm{wpgmc}\}`$, a folder, titled `TREE` containing the following files.
-      1. A file corresponding to each branch of the tree, containing the list of incremental edges along the same branch. These incremental edges are stored in the row-major flattened index, i.e., the edge $e = \{i,j\}$ between nodes $i$ and $j$ are stored as $i \times n + j$.
+      1. A file corresponding to each branch of the tree, containing the list of incremental edges along the same branch. These incremental edges are stored in the row-major flattened index, i.e., the edge $e = \{i,j\}$ between nodes $i$ and $j$ are stored as $i \times n + j$. Here, $`i,j \in \{1,2,\ldots,n\}`$.
       2. `root.csv` - a file containing the edge list of the root network
       3. `info.tsv` - a tab-separated file containing the branch id, source network id, destination network id, and number of incremental edges along the branch.
       4. `child_count.tsv` - this file is generated only for the tree constructed using $`\mathrm{rstar}`$ and contains the number of children of each branching point.<br>
