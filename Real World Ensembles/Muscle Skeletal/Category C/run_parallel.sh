@@ -28,6 +28,6 @@ for sp in $(seq 70 5 95); do
 done
 echo "Done"
 
-mkdir $tissue
+mkdir -p $tissue
 mv ProcessNets/[0-9]* $tissue/
 exit
