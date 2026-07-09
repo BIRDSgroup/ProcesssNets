@@ -5,13 +5,13 @@ counter=0
 s=500
 for n in $(seq 100 100 1000); do
 	echo $n
-	mkdir ProcessNets/$n
+	mkdir -p ProcessNets/$n
 	time python SIM_graphs_B.py $n $n $s >> "ProcessNets/$n/output.txt" 2>> "ProcessNets/$n/error.txt"	
 	for B in $(seq 100 100 1000); do
 	{
 		echo $n $B
 		folder="$n/$B"
-		mkdir ProcessNets/graphs_$B ProcessNets/$folder ProcessNets/graphs_orig_$B
+		mkdir -p ProcessNets/graphs_$B ProcessNets/$folder ProcessNets/graphs_orig_$B
 		cp $B/[0-9]*.csv ProcessNets/graphs_$B
 		cp "$B/edge count.tsv" ProcessNets/$folder
 		cp ProcessNets/$n/seed.txt ProcessNets/$folder
