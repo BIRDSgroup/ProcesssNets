@@ -9,7 +9,7 @@ sp=$3
 cores=50
 
 echo $tissue $B
-mkdir ProcessNets/$sp ProcessNets/graphs_$sp ProcessNets/graphs_orig_$sp
+mkdir -p ProcessNets/$sp ProcessNets/graphs_$sp ProcessNets/graphs_orig_$sp
 
 #SEED GENERATION
 echo "Seed Generation + Gene Expression Extraction"
