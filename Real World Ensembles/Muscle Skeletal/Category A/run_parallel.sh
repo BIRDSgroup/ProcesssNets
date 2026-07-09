@@ -12,7 +12,7 @@ for tissue in "${tissues[@]}"; do
 		mv "$tissue" "$n"
 		cd ..
 	done
-	mkdir $tissue
+	mkdir -p $tissue
 	for n in $(seq 100 100 1000); do
     		mv "ProcessNets/$n" "$tissue/"
 	done
