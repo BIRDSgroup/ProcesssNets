@@ -53,9 +53,11 @@ def TreeConstructor(cluster_list, n, B, gfolder, outfolder):
 
 def HashDistCompute(B, n, seedpath, gfolder, k=10):
     from numpy.random import permutation, seed
+    import os
     
-    with open(seedpath, 'r') as seed_file:
-        seed(int(seed_file.read()))
+    if os.path.exists(seedpath):
+        with open(seedpath, 'r') as seed_file:
+            seed(int(seed_file.read()))
         
     m_max = np.triu_indices(n)
     m_max = m_max[0]*n + m_max[1]
