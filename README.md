@@ -43,6 +43,7 @@ As previously mentioned, this framework takes as input an ensemble of networks.
 Suppose your ensemble is titled `Ensemble`.
 Then please create a folder titled `graphs_Ensemble`, and store your networks inside this folder.
 Each network $G_i$ should be stored in the file `i.csv` and should contain the edge list of the i<sup>th</sup> network - each row representing an edge in the network.
+Please don't add any other extra headers and column indexes to the files.
 
 For example, using the Python programming language, if the `A` variable stores the adjacency matrix of the i<sup>th</sup> network, then you may use:
 ```python
@@ -56,6 +57,20 @@ import numpy as np
 import networkx as nx
 #edges = list(Gi.edges()) # required only if you want to generate the list of edges
 nx.write_edgelist(Gi, 'graphs_Ensemble/' + str(i) + '.csv', delimiter=",", data=False)
+```
+Additionally, a metadata file titled `edge count.tsv` containing information regarding of the size of each network should be present in the `graphs_Ensemble` folder. Every row of the file should contain the id of the network, number of nodes in the network and the number of edges in the network separated by tab. 
+For example, suppose you have $B$ networks. Then change your working directory to `graphs_Ensemble` using:
+```bash
+cd graphs_Ensemble
+```
+If you are using Python, then please run the following script to generate `edge count.tsv`.
+```python
+import numpy as np
+for b in range(B): # replace B with the number of networks in your ensemble
+   edges = np.genfromtxt(str(b) + '.csv', delimiter = ',', dtype=int)
+   with open('edge count.tsv', 'a') as file:
+      print(b, len(np.unique(edges)), len(edges), sep='\t', end='\n', file=file)
+   file.close()
 ```
 3. **Executing the Framework**<br>
 Suppose your input ensemble has $B$ networks, each defined on $n$ nodes and generated from a dataset with $s$ samples. 
