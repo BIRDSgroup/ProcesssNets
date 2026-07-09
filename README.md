@@ -115,9 +115,9 @@ Please mention the required values next to the corresponding option separated by
    Default value is `T`.
    
 An example run:
-Suppose you want to compute degree centrality and PR centrality only using $`\mathrm{rstar}`$ and $`\mathrm{slink}`$ $\texttt{nc}$-trees only. And you also want to compute the same two measures using the self-implementation variant of baseline approach but not using `networkx` package, then please execute the code as follows:
+Suppose you want to compute degree centrality and PR centrality only using $`\mathrm{rstar}`$ and $`\mathrm{slink}`$ $\texttt{nc}$-trees only on an ensemble titled `Eg_Ensemble` with $B=100$ networks and each network defined on $n=500$ nodes. And you also want to compute the same two measures using the self-implementation variant of baseline approach but not using `networkx` package, then please execute the code as follows:
 ```bash
-time ./main.sh Results n B s Ensemble --measure degree pr --config rstar slink --tnx F
+time ./main.sh Results 500 100 -1 Eg_Ensemble --measure degree pr --config rstar slink --tnx F
 ```
 
 5. **Outputs**<br>
