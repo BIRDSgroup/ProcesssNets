@@ -9,8 +9,8 @@ n=$3
 cores=50
 
 echo $tissue $B
-mkdir $tissue
-mkdir ProcessNets/graphs_$tissue ProcessNets/graphs_orig_$tissue
+mkdir -p $tissue
+mkdir -p ProcessNets/graphs_$tissue ProcessNets/graphs_orig_$tissue
 
 #SEED GENERATION
 echo "Seed Generation + Gene Expression Extraction"
