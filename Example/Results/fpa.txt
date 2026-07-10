@@ -1,0 +1,25 @@
+FPA TREE Construction
+
+real	0m2.147s
+user	0m2.009s
+sys	0m0.133s
+FPA degree MEASURE
+
+real	0m3.486s
+user	0m0.630s
+sys	0m0.070s
+FPA connectivity MEASURE
+
+real	0m2.701s
+user	0m0.497s
+sys	0m0.045s
+FPA pr MEASURE
+
+real	0m4.556s
+user	0m0.824s
+sys	0m0.086s
+FPA cc MEASURE
+
+real	0m6.934s
+user	0m1.353s
+sys	0m0.080s

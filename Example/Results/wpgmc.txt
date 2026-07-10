@@ -1,0 +1,25 @@
+WPGMC TREE Construction
+
+real	0m2.121s
+user	0m1.981s
+sys	0m0.123s
+WPGMC degree MEASURE
+
+real	0m3.526s
+user	0m0.620s
+sys	0m0.087s
+WPGMC connectivity MEASURE
+
+real	0m2.737s
+user	0m0.501s
+sys	0m0.047s
+WPGMC pr MEASURE
+
+real	0m4.750s
+user	0m0.861s
+sys	0m0.091s
+WPGMC cc MEASURE
+
+real	0m6.811s
+user	0m1.354s
+sys	0m0.075s

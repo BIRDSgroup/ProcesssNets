@@ -1,0 +1,25 @@
+RSTAR TREE Construction
+
+real	0m0.621s
+user	0m0.550s
+sys	0m0.070s
+RSTAR degree MEASURE
+
+real	0m3.173s
+user	0m0.551s
+sys	0m0.082s
+RSTAR connectivity MEASURE
+
+real	0m2.491s
+user	0m0.451s
+sys	0m0.048s
+RSTAR pr MEASURE
+
+real	0m4.208s
+user	0m0.753s
+sys	0m0.084s
+RSTAR cc MEASURE
+
+real	0m6.871s
+user	0m1.278s
+sys	0m0.094s

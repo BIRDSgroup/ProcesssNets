@@ -1,0 +1,25 @@
+UPGMA TREE Construction
+
+real	0m2.122s
+user	0m1.992s
+sys	0m0.130s
+UPGMA degree MEASURE
+
+real	0m3.486s
+user	0m0.613s
+sys	0m0.085s
+UPGMA connectivity MEASURE
+
+real	0m2.697s
+user	0m0.489s
+sys	0m0.053s
+UPGMA pr MEASURE
+
+real	0m4.551s
+user	0m0.830s
+sys	0m0.082s
+UPGMA cc MEASURE
+
+real	0m7.062s
+user	0m1.407s
+sys	0m0.066s

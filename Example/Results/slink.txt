@@ -1,0 +1,25 @@
+SLINK TREE Construction
+
+real	0m2.389s
+user	0m2.202s
+sys	0m0.186s
+SLINK degree MEASURE
+
+real	0m3.427s
+user	0m0.603s
+sys	0m0.081s
+SLINK connectivity MEASURE
+
+real	0m2.651s
+user	0m0.486s
+sys	0m0.047s
+SLINK pr MEASURE
+
+real	0m4.413s
+user	0m0.780s
+sys	0m0.097s
+SLINK cc MEASURE
+
+real	0m7.406s
+user	0m1.546s
+sys	0m0.063s
