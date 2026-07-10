@@ -164,6 +164,27 @@ For example, consider the branch $(G_I, G_J)$ from $G_I$ to $G_J$ with the id $x
       2. For the baseline approach with self-implementation, if executed, a file titled `mytrivial.txt`.
       3. For the baseline approach using `networkx` package, if executed, a file titled `trivial.txt`.
 
+## Example Run
+An example ensemble of $100$ networks constructed on $50$ nodes, along with the results it should generate, is provided in the example folder. To replicate the results, please do the following:
+1. Copy the folder `Example/graphs_Example` to the `ProcessNets` folder as:
+```bash
+cp -a Example/graphs_Example ProcessNets
+```
+2. Create the `Results` directory as:
+```bash
+mkdir ProcessNets/Results
+```
+3. Copy the seed file as:
+```bash
+cp Example/seed.txt ProcessNets/Results
+```
+4. Execute the code as follows:
+```bash
+cd ProcessNets
+time ./main.sh Results 50 100 -1 Example
+```
+All results generated will be contained in `ProcessNets/Results`, and will replicate `Example/Results`.
+
 ## Replication of Results
 For each dataset, we provide codes both for parallel and sequential execution of different ensembles, constructed using the same procedure on the respective datasets but with different values of the parameters. 
 Note that, for parallel execution, each ensemble runs on dedicated $5$ cores and at most $10$ ensembles are run at a time, implying that, a minimum of $50$ cores is required for the parallel executions.
