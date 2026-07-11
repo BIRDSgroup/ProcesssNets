@@ -28,15 +28,17 @@ Please follow each step in the given order.
 1. **Clone/download the project from GitHub to your local machine.**
 ```bash
 git clone https://github.com/BIRDSgroup/ProcesssNets PNets
-cd PNets
+cd PNets/ProcessNets
 ```
-If you want to run all five framework configurations on five cores with each configuration on a dedicated core, then please use:
+If you face any issues due to $5$ core allocation, then please use:
 ```bash
-cd "ProcessNets"
+git clone https://github.com/BIRDSgroup/ProcesssNets PNets
+cd "PNets/Miscellaneous/ProcessNets - sequential"
 ```
-Else if you want to run each configuration sequentially, then please use:
+If you want to print the I/O and Processing Time of the codes as well, then please use:
 ```bash
-cd "ProcessNets - sequential"
+git clone https://github.com/BIRDSgroup/ProcesssNets PNets
+cd "PNets/Miscellaneous/IOP Time/ProcessNets"
 ```
 2. **Prepare input data.**<br>
 As previously mentioned, this framework takes as input an ensemble of networks.
@@ -221,4 +223,22 @@ time ./run_parallel.sh
 If you want sequential execution:
 ```bash
 time ./run_seq.sh
+```
+
+## Replication of results showing I/O Time and Processing Time
+To replicate these results, then please use the following:
+```bash
+cd "PNets/Miscellaneous/IOP Time/ProcessNets"
+```
+If you want to replicate results on ensembles from Category A, then:
+```bash
+cp -r "../MS - Cat A - n_1000/graphs_Muscle_Skeletal" .
+cp -r "../MS - Cat A - n_1000/Muscle_Skeletal" .
+time ./main.sh Muscle_Skeletal/1000 1000 1000 -1 Muscle_Skeletal
+```
+If you want to replicate results on ensembles from Category B, then:
+```bash
+cp -r "../MS - Cat B - n_1000/graphs_Muscle_Skeletal" .
+cp -r "../MS - Cat B - n_1000/Muscle_Skeletal" .
+time ./main.sh Muscle_Skeletal/1000 1000 1000 -1 Muscle_Skeletal
 ```
